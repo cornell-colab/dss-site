@@ -1,5 +1,18 @@
 # CoLab Guides Guide
 This file serves a guide to the features built into the Just the Docs Template for the Digital Scholarship Services Guides site. This does not include documentation for how to use the [Just the Docs Jekyll template](https://just-the-docs.com/), though some sections may overlap.
+
+## Git Setup
+In order to edit the Guides site locally, you can either create and edit a Markdown file on your computer and then upload the new Markdown file to the GitHub Repository's pages folder; or edit the whole site locally by making a copy.
+
+To edit locally in VSCode:
+1. Go to the remote repository at https://github.com/cornell-colab/guides-site.
+2. Click *Code* > *GitHub CLI*. 
+3. Clone the repository: Copy the command under GitHub CLI and paste it into the Command Line/Terminal on your computer.
+4. After the command runs, change into the directory for your new cloned repository.
+5. Run `git remote add main https://github.com/cornell-colab/guides-site.git`.
+
+You should now have a local version of the repository's main branch on your computer. In every editiong session BEFORE you make a change to the site, use git to pull the remote repository changes. Then push your changes to the remote repository when you're done.
+
 ## Folder Structure
 The index.md (homepage) files, _config.html, and other general, whole site files are stored at the root folder at dss-site. The *_data* folder holds .csv files and other files that can be processed by *includes*, like a list of images for a page, list of items for a card gallery, etc. The *_includes* folder holds all of the extra code that makes interactive functions and buttons, like cards, galleries, dropwdowns, and image text boxes, work. The *_layouts* folder contains the default layout for the homepage, which exists outside of just-the-docs. the *_sass* folder contains stylesheets for just-the-docs only. The assets folder contains all images, scripts, and other stylesheets for the site. The pages folder contains each page on the guides site, excluding the homepage. The drafts folder contains pages that you do not want to be published yet.
 
