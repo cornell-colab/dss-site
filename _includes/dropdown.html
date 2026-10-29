@@ -1,0 +1,14 @@
+<!--
+
+The dropdown include takes the following arguments:
+  inner: the inner content
+  outer: the outer content
+
+--> 
+
+<details class="collapsible-outer">
+  <summary class="collapsible-top">{{ include.outer }}</summary>
+    <div class="collapsible-inner">
+      {{ include.inner }}
+    </div>
+</details>
