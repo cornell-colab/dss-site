@@ -1,8 +1,8 @@
 title: Digital Scholarship Guides
 email: digitalcolab@cornell.edu
 description: >- 
-baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://cornell-colab.github.io/guides-site" 
+baseurl: "/dss-site" # the subpath of your site, e.g. /blog
+url: "" 
 github_username: cornell-colab
 theme: just-the-docs
 plugins:
