@@ -16,65 +16,11 @@ You should now have a local version of the repository's main branch on your comp
 ## Folder Structure
 The index.md (homepage) files, _config.html, and other general, whole site files are stored at the root folder at dss-site. The *_data* folder holds .csv files and other files that can be processed by *includes*, like a list of images for a page, list of items for a card gallery, etc. The *_includes* folder holds all of the extra code that makes interactive functions and buttons, like cards, galleries, dropwdowns, and image text boxes, work. The *_layouts* folder contains the default layout for the homepage, which exists outside of just-the-docs. the *_sass* folder contains stylesheets for just-the-docs only. The assets folder contains all images, scripts, and other stylesheets for the site. The pages folder contains each page on the guides site, excluding the homepage. The drafts folder contains pages that you do not want to be published yet.
 
-Below is the file structure, provided in a diagram:
-├── dss-site/
-├── index.md
-├── guides_guide.md
-├── .gitignore
-├── _config.yml
-├── Gemfile
-├── Gemfile.lock
-│   ├── _data/
-│   │   ├── cad-tools.csv
-|   ├── _includes/
-│   │   ├── banner.html
-│   │   ├── card.html
-│   │   ├── carousel-js.html
-│   │   ├── grid.html
-│   │   ├── img-txt.html
-│   │   ├── dropdown-js.html
-│   │   ├── toc-js.html
-│   │   ├── tocbot-init-js.html
-│   │   ├── colab-footer.html
-│   │   ├── colab-head.html
-│   │   ├── colab-navigation.html
-|   ├── _layouts/
-│   │   ├── category.html
-│   │   ├── colab-default.html
-│   │   ├── colab-page.html
-│   │   ├── post.html
-|   ├── _sass/
-│   │   ├── color_schemes
-│   │   |   ├── colabs.scss
-│   │   ├── custom
-│   │   |   ├── custom.scss
-|   ├── _site/
-|   ├── .jekyll-cache/
-|   ├── .vscode/
-|   ├── assets/
-│   │   ├── js/
-│   │   |   ├── make-ids.js
-│   │   |   ├── tocbot.min.js
-│   │   ├── img/
-│   │   |   ├── img.jpg
-│   │   |   ├── img.png
-│   │   ├── css/
-│   │   |   ├── main.css
-│   │   |   ├── tocbot.css
-|   ├── drafts/
-│   │   ├── draft_guide_01.md
-│   │   ├── draft_guide_02.md
-│   │   ├── draft_guide_03.md
-|   ├── pages/
-│   │   ├── guide_01.md
-│   │   ├── guide_02.md
-│   │   ├── guide_03.md
-
 ## Editing the Site
 ### Adding a Page
 To add a page to the site, simply create a new Markdown file (.md) and add it to a page in the *pages* folder. 
 
-### Page Frontmatter
+#### Page Frontmatter
 Each page needs YAML frontmatter at the top. You can see a template of the available frontmatter options at `pages/template.md`. The options include:
 
 ```
@@ -98,7 +44,9 @@ You can add include to a page by identifying the space in the page you'd like to
 {% include FILENAME OF INCLUDE W/O EXTENSION %}. Each include has its own arguments or parameters that can be included to determine what content appears. Each include in the *_includes* folder lists its parameters as a comment at the top of the file.
 
 #### Adding Files/Links
-To avoid hotlinking, please upload any PDFs, images, scripts, videos, or other media files to the *assets* folder, within an approriately titled subfolder. Your link to said media item will then be internal to the site, rather than pulling from an external server. Because of this internal structure, you can use shortened relative paths instead of full links, e.g. "/assets/img/digital-colab.png".
+To avoid hotlinking, please upload any PDFs, images, scripts, videos, or other media files to the *assets* folder, within an approriately titled subfolder. Your link to said media item will then be internal to the site, rather than pulling from an external server. Because of this internal structure, you can use shortened relative paths instead of full links, e.g. `{{ site.baseurl }}/assets/img/digital-colab.png`.
+
+When using an internal link, you must append `{{ site.baseurl }}` before the first forward-slash.
 
 ### Editing the Navigations
 To edit the items available in the navigation bar on the homepage, go to `_includes/colab-navigation.html`. To edit the items available in the sidebar navigation for the Guides, you will need to edit the YAML frontmatter for an individual page.
