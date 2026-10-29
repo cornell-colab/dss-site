@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    {% include colab-head.html %}
-  </head>
-  <body class="home-body">
-    <main>
-      {% include banner.html %}
-      
-    </main> 
-  </body>
-</html>
+---
+layout: colab-default
+---
+{% include banner.html %}
+The Digital CoLab is a collaborative space belonging to the Digital Scholarship Services Department.
