@@ -1,0 +1,28 @@
+title: Digital Scholarship Guides
+email: digitalcolab@cornell.edu
+description: >- 
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "" # the base hostname & protocol for your site, e.g. 
+github_username: cornell-colab
+theme: just-the-docs
+plugins:
+  - jekyll-feed
+  - jekyll-archives
+
+jekyll-archives:
+  enabled: [categories]
+  layout: 'category'
+  permalinks:
+    category: '/category/:name/'
+
+defaults:
+  - scope:
+      path: "category" # or your categories/tags output directory like 'category'
+    values:
+      nav_exclude: true
+      search_exclude: true
+
+color_scheme: colab
+
+aux_links:
+  Library Page: https://www.library.cornell.edu/about/staff/central-departments/digital-scholarship/

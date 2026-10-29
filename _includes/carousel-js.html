@@ -1,0 +1,97 @@
+<!-- inspired/modified from Learning Axis Snippet 7238 https://perma.cc/3YWK-Q6XG -->
+
+{% assign carousel_items = include.list %}
+<style>
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  background-color: white;
+}
+.carousel-track {
+  display: flex;
+  transition: transform 0.4s ease-in-out;
+}
+.carousel-slide {
+  display: flex;
+  justify-content: space-between;
+  min-width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.box {
+  width: 30%;
+  height: 100px;
+  background-color: #007BFF;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 8px;
+  font-size: 18px;
+  text-align: center;
+}
+.carousel-buttons {
+  position: absolute;
+  top: 40%;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+.carousel-buttons button {
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.carousel-buttons button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+</style>
+<div class="flex-inner">
+  <div class="carousel">
+    <div class="carousel-track">
+      {% for item in carousel_items %}
+      {% assign mod = forloop.index | modulo: 3 %}
+        {% if mod == 1 %}
+        <div class="carousel-slide">
+            {% include card.html image=item.image link=item.link title=item.title description=item.description %}
+        {% elsif mod == 2 %}
+            {% include card.html image=item.image link=item.link title=item.title description=item.description %}
+        {% else %}
+            {% include card.html image=item.image link=item.link title=item.title description=item.description %}
+        </div>
+        {% endif %}
+      {% endfor %}
+    </div>    
+  </div>
+  <div class="carousel-buttons">
+      <button id="prev">&lt;</button>
+      <button id="next">&gt;</button>
+  </div>
+</div>
+
+<script>
+  const track = document.querySelector('.carousel-track');
+  const slides = Array.from(track.children);
+  const prevButton = document.getElementById('prev');
+  const nextButton = document.getElementById('next');
+  let currentIndex = 0;
+  function updateCarousel() {
+  track.style.transform = `translateX(-${currentIndex * 100}%)`;
+  }
+  prevButton.addEventListener('click', () => {
+  currentIndex = (currentIndex === 0) ? slides.length - 1 : currentIndex - 1;
+  updateCarousel();
+  });
+  nextButton.addEventListener('click', () => {
+  currentIndex = (currentIndex === slides.length - 1) ? 0 : currentIndex + 1;
+  updateCarousel();
+  });
+</script>

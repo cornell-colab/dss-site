@@ -1,0 +1,6 @@
+{% assign grid_items = include.list %}
+<div class="flex-inner">
+{% for item in grid_items %}
+  {% include card.html image=item.image link=item.link title=item.title description=item.description %}
+{% endfor %}
+</div>

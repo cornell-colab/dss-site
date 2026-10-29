@@ -1,0 +1,10 @@
+  <div class="img-txt-container">
+    <div class="img-box"><img src="{{ include.image }}"></div>
+    <div class="text-box">
+      <h4> {{ include.title }} </h4>
+      <p> {{ include.description }} </p>
+      {% if include.link %}
+        {% include button.html link=include.link text=include.link_text %}
+      {% endif %}
+    </div>
+  </div>
