@@ -2,7 +2,7 @@ title: Digital Scholarship Guides
 email: digitalcolab@cornell.edu
 description: >- 
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "" # the base hostname & protocol for your site, e.g. 
+url: "https://cornell-colab.github.io/guides-site" 
 github_username: cornell-colab
 theme: just-the-docs
 plugins:
